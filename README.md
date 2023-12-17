@@ -1,4 +1,4 @@
-The project is a GPT like wich give you psychology advices if you suffer of anxiety or other psychological disorders.
+The project is a GPT like which give you psychology advices if you suffer of anxiety or other psychological disorders.
 
 It's based on the project from nanoGPT project from Karparthy (https://github.com/karpathy/nanoGPT)
 
@@ -16,10 +16,10 @@ For the evil advice chat :
 ``$ python train.py config/train_not_nice.py``
 
 ## To test :
-#### In the terminal :
+##### In the terminal :
 ``$ python3.10 sample.py --out_dir=out-psychology-char``
 
 You can replace the out_dir by the others 
 
-#### On web (local)
+##### On web (local) :
 Open the index.html file in your browser 
