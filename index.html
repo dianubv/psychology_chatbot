@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychology advices text generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Psychology advices text generator</h1>
+    <div class="container">
+        <div class="left-input">
+            <textarea id="inputText" placeholder="What is your problem?"></textarea>
+        </div>
+        <div class="right-input">
+            <input id="lineInput" type="number" placeholder="Number of advice" min="1">
+            <button id="generateButton">Generate</button>
+        </div>
+    </div>
+    <div id="outputText"></div>
+</body>
+</html>
