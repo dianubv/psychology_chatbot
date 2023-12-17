@@ -13,7 +13,7 @@ from model import GPTConfig, GPT
 
 # -----------------------------------------------------------------------------
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
-out_dir = 'out-psychology' # ignored if init_from is not 'resume'
+out_dir = 'out-psychology-char' # ignored if init_from is not 'resume'
 start = "\n" # or "<|endoftext|>" or etc. Can also specify a file, use as: "FILE:prompt.txt"
 num_samples = 10 # number of samples to draw
 max_new_tokens = 500 # number of tokens generated in each sample
@@ -36,9 +36,8 @@ ctx = nullcontext() if device_type == 'cpu' else torch.amp.autocast(device_type=
 print(out_dir)
 # init from a model saved in a specific directory
 ckpt_path = os.path.join(out_dir, 'ckpt.pt')
-# print(f"Loading checkpoint from {ckpt_path}...")
+print(f"Loading checkpoint from {ckpt_path}...")
 checkpoint = torch.load(ckpt_path, map_location=device)
-# print(f"Loading GPT config from {ckpt_path}...")
 gptconf = GPTConfig(**checkpoint['model_args'])
 model = GPT(gptconf)
 state_dict = checkpoint['model']
@@ -47,7 +46,7 @@ for k,v in list(state_dict.items()):
     if k.startswith(unwanted_prefix):
         state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
 model.load_state_dict(state_dict)
-# print(f"Loaded checkpoint {model}!")
+print(f"Loaded checkpoint {model}!")
 
 model.eval()
 model.to(device)
@@ -58,15 +57,15 @@ load_meta = False
 if init_from == 'resume' and 'config' in checkpoint and 'dataset' in checkpoint['config']: # older checkpoints might not have these...
     meta_path = os.path.join('data', checkpoint['config']['dataset'], 'meta.pkl')
     load_meta = os.path.exists(meta_path)
-    # print(f"Found meta.pkl in dataset folder: {load_meta}")
+    print(f"looking for meta.pkl in dataset folder: {load_meta}, {meta_path}")
 if load_meta:
-    # print(f"Loading meta from {meta_path}...")
+    print(f"Loading meta from {meta_path}...")
     with open(meta_path, 'rb') as f:
         meta = pickle.load(f)
     # TODO want to make this more general to arbitrary encoder/decoder schemes
     stoi, itos = meta['stoi'], meta['itos']
-    # print(f"Loaded meta: {len(stoi):,} tokens")
-    # print(f"meta: {meta}")
+    print(f"Loaded meta: {len(stoi):,} tokens")
+    print(f"meta: {meta['itos'].values()}") 
     # print(f"itos: {itos}")
     encode = lambda s: [stoi[c] for c in s]
     decode = lambda l: ''.join([itos[i] for i in l])
