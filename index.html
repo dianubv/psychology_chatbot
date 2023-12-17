@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Psychology advices text generator</title>
+    <title>Psy low-cost</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Psychology advices text generator</h1>
+    <h1>Psychology advice text generator</h1>
     <div class="container">
         <div class="left-input">
-            <textarea id="inputText" placeholder="What is your problem?"></textarea>
+            <p id="pbText">What is your problem?</p>
+            <p id="pbText-exemple">For example: "I'm anxious about my AI project because it's not working"</p>
+            <textarea id="inputText" placeholder="Enter your problem here"></textarea>
         </div>
+        
         <div class="right-input">
-            <input id="lineInput" type="number" placeholder="Number of advice" min="1">
+            <p id="nbadviceText">How much advice do you want?</p>
+            <input id="lineInput" type="number" placeholder="Nb" min="1">
             <button id="generateButton">Generate</button>
         </div>
     </div>
