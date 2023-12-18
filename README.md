@@ -1,10 +1,18 @@
-## Overview
+# Overview
 The project is a GPT like which give you psychology advices if you suffer of anxiety or other psychological disorders.
 
-It's based on the project from nanoGPT project from Karparthy (https://github.com/karpathy/nanoGPT)
+WARNING : This chatbot isn't a real solution if you suffer of psycholoogy disorders! It's just a student project. A real psychologist is a better solution.Take care of yourself :)
 
-The web part of the project doesn't work.
+This project is based on the project from nanoGPT project from Karparthy (https://github.com/karpathy/nanoGPT). Thanks to NLeboucher for the help (https://github.com/NLeboucher).
 
+# By the website
+You just need to click on the github link and enjoy with your low-cost psychology chatbot. 
+Link : https://dianubv.github.io/psychology_chatbot/
+
+#### The webpage : 
+![Alt text](image.png)
+
+# In local
 ## Starting 
 You need to download some pip package :
 ``$ pip install -r requirements.txt``
@@ -34,7 +42,8 @@ For the evil version :
 ##### In the terminal :
 ``$ python3.10 web.py --out_dir=out-psychology-char``
 
-You can replace the out_dir by the others 
+You can replace the out_dir by the others. 
 
 ##### On web (local) :
-Open the index.html file in your browser 
+Open the index.html file in your browser .
+
