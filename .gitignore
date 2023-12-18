@@ -4,4 +4,4 @@
 .vscode
 __pycache__/
 *.pyc
-
+data/out-psychology/ckpt.pt
